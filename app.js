@@ -57,6 +57,8 @@ window.addEventListener('load' , () => {
     document.querySelector('.todayBTN').classList.add('clickedCaregory')
 })
 
+// create the task array
+
 let TaskArray = [];
 
 function addtask () {
@@ -82,9 +84,7 @@ function ClearInput() {
     taskInput.value = ''
 }
 
-addTaskButton.addEventListener('click' , () => {
-    addtask()
-})
+// operation on task array
 
 function TaskOperation (tasks) {
     todayContainer.innerHTML = ''
@@ -137,6 +137,8 @@ function TaskOperation (tasks) {
     }
 }
 
+// delete task
+
 function deletTask(taskId){
     let localvalue = JSON.parse(localStorage.getItem('Tods'))
     TaskArray = localvalue
@@ -147,6 +149,8 @@ function deletTask(taskId){
     setLocalStorage(TaskArray)
     TaskOperation(TaskArray)
 }
+
+// complete task 
 
 function checkedTask(taskid){
     let localvalue = JSON.parse(localStorage.getItem('Tods'))
@@ -161,8 +165,10 @@ function checkedTask(taskid){
 }
 
 function openMenuBox(taskId){
-    
+
 }
+
+// local storage operation
 
 function setLocalStorage (taskarray) {
     localStorage.setItem('Tods' , JSON.stringify(taskarray))
@@ -181,8 +187,10 @@ function getLocalStorage () {
     TaskOperation (TaskArray)
 }
 
-window.addEventListener('load' , getLocalStorage)
+// Events in DOM
 
+window.addEventListener('load' , getLocalStorage)
+addTaskButton.addEventListener('click' , addtask)
 
 
 
