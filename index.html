@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Task</title>
+    <link rel="icon" type="icon" href="/image/logo.png">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/771729e978.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    
+    <div class="Category-wrapper">
+        <h4 class="all-section">
+            All Section
+        </h4>
+        <ul class="categories">
+            <li class="item todayBTN" data-name="Today">Today</li>
+            <li class="item" data-name="Tomorrow">Tomorrow</li>
+            <li class="item" data-name="This-Week">This Week</li>
+            <li class="item" data-name="Done-Tasks">Done Task</li>
+        </ul>
+    </div>
+
+    <div class="tasks-wrapper">
+        
+        <div class="header-box">
+            <div class="header-top">
+                <div class="logo-site">
+                    <span class="logo-box"><img src="image/to-do-list.png" alt="sky"></span>
+                    <h1 class="site-name">OpenTask</h1>
+                </div>
+                <span class="Sign-in">Sign In</span>
+            </div>
+            <p class="catchword">Use OpenTask to manage your task and be the best version of your self.</p>
+        </div>
+
+        <div class="task-body">
+            <div class="task-header">
+                <h3 class="task-header-text">Tasks</h3>
+                <div class="addbox">
+                    <div class="add-button">
+                        <i class="fa fa-plus openBox"></i>
+                    </div>
+                    <div class="add-input-box">
+                        <div class="task-input-box">
+                            <input type="text" class="add-input">
+                            <i class="fa fa-plus addTask-btn"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tasks-container">
+                <div class="today-container task-container" data-name="Today"></div>
+                <div class="tomorrow-container task-container" data-name="Tomorrow"></div>
+                <div class="thisweek-container task-container" data-name="This-Week"></div>
+                <div class="done-container task-container" data-name="Done-Tasks"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
