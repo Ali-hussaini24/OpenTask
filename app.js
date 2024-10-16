@@ -80,6 +80,18 @@ function addtask () {
     ClearInput()
 }
 
+taskInput.addEventListener('keydown' , (event)=> {
+    let InputValue = taskInput.value
+    if (event.keyCode == 13) {
+        if (InputValue) {
+            addtask()
+        }
+        else{
+            alert('please Fill INPUT')
+        }
+    }
+})
+
 function ClearInput() {
     taskInput.value = ''
 }
@@ -191,7 +203,6 @@ function getLocalStorage () {
 
 window.addEventListener('load' , getLocalStorage)
 addTaskButton.addEventListener('click' , addtask)
-
 
 
 
