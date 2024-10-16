@@ -193,18 +193,37 @@ img{
 }
 .checkedSymbol{
     display: none;
-    width: 10px;
-    height: 5px;
-    border-left: 2px solid var(--green-color);
-    border-bottom: 2px solid var(--green-color);
+    width: 20px;
+    height: 20px;
+    background-color: var(--dark-blue);
     position: absolute;
     top: 45%;
     left: 50%;
-    transform: translate(-50% , -50%) rotate(-45deg);
-    -webkit-transform: translate(-50% , -50%) rotate(-45deg);
-    -moz-transform: translate(-50% , -50%) rotate(-45deg);
-    -ms-transform: translate(-50% , -50%) rotate(-45deg);
-    -o-transform: translate(-50% , -50%) rotate(-45deg);
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    transform: translate(-50% , -50%);
+    -webkit-transform: translate(-50% , -50%);
+    -moz-transform: translate(-50% , -50%);
+    -ms-transform: translate(-50% , -50%);
+    -o-transform: translate(-50% , -50%);
+}
+.checkedSymbol::before{
+    content: '';
+    position: absolute;
+    top: 8px;
+    right: 3px;
+    border-right: 2px solid var(--white-color);
+    border-bottom: 2px solid var(--white-color);
+    height: 9px;
+    width: 5px;
+    transform: translate(-50% , -50%) rotate(45deg);
+    -webkit-transform: translate(-50% , -50%) rotate(45deg);
+    -moz-transform: translate(-50% , -50%) rotate(45deg);
+    -ms-transform: translate(-50% , -50%) rotate(45deg);
+    -o-transform: translate(-50% , -50%) rotate(45deg);
 }
 .checkedTask{
     text-decoration:line-through;

@@ -9,9 +9,6 @@ let addTaskButton = document.querySelector('.addTask-btn')
 
 let AllContainer = document.querySelector('.tasks-container')
 let todayContainer = document.querySelector('.today-container')
-let tomorrowContainer = document.querySelector('.tomorrow-container')
-let thisweekContainer = document.querySelector('.thisweek-container')
-let doneContainer = document.querySelector('.done-container')
 
 //********** task box button *********
 
@@ -65,7 +62,6 @@ function addtask () {
     let InputValue = taskInput.value
     if (InputValue) {
         let TaskObject = {
-            id : TaskArray.length + 1,
             Task : InputValue,
             case : false
         }
@@ -100,7 +96,7 @@ function ClearInput() {
 
 function TaskOperation (tasks) {
     todayContainer.innerHTML = ''
-    tasks.forEach((item) => {
+    tasks.forEach((item , index) => {
 
         let taskItem = document.createElement('div')
         taskItem.className = 'task-item'
@@ -110,7 +106,7 @@ function TaskOperation (tasks) {
 
         let checkedBox = document.createElement('div')
         checkedBox.className = 'check-box'
-        checkedBox.setAttribute('onclick' , `checkedTask(${item.id})`)
+        checkedBox.setAttribute('onclick' , `checkedTask(${index})`)
 
         let tickBox = document.createElement('span')
         tickBox.className = 'checkedSymbol'
@@ -122,7 +118,7 @@ function TaskOperation (tasks) {
         if (item.case) {
             tickBox.style.display = 'block'
             mainTask.classList.add('checkedTask')
-            taskItem.classList.add('changeOpacity')
+            // taskItem.classList.add('changeOpacity')
         }
         
         checkedBox.append(tickBox)
@@ -132,11 +128,11 @@ function TaskOperation (tasks) {
         taskControler.className = 'task-controler-box'
 
         let ellipsIcon = document.createElement('i')
-        ellipsIcon.className = 'fa-solid fa-ellipsis-vertical'
+        ellipsIcon.className = 'fa-solid fa-pen'
 
         let DeleteIcon = document.createElement('i')
         DeleteIcon.className = 'fa fa-trash'
-        DeleteIcon.setAttribute('onclick' , `deletTask(${item.id})`)
+        DeleteIcon.setAttribute('onclick' , `deletTask(${index})`)
 
         taskControler.append(ellipsIcon , DeleteIcon)
         taskItem.append(mainTaskBox , taskControler)
@@ -151,24 +147,22 @@ function TaskOperation (tasks) {
 
 // delete task
 
-function deletTask(taskId){
+function deletTask(taskindex){
+    console.log(taskindex)
     let localvalue = JSON.parse(localStorage.getItem('Tods'))
     TaskArray = localvalue
-    let isTrue = TaskArray.findIndex((item) => {
-        return item.id === taskId
-    }) 
-    TaskArray.splice(isTrue , 1)
+    TaskArray.splice(taskindex , 1)
     setLocalStorage(TaskArray)
     TaskOperation(TaskArray)
 }
 
 // complete task 
 
-function checkedTask(taskid){
+function checkedTask(taskindex){
     let localvalue = JSON.parse(localStorage.getItem('Tods'))
     TaskArray = localvalue
-    TaskArray.forEach((item) => {
-        if (item.id == taskid) {
+    TaskArray.forEach((item , index) => {
+        if (index == taskindex) {
             item.case = !item.case
         }
     })
@@ -203,8 +197,6 @@ function getLocalStorage () {
 
 window.addEventListener('load' , getLocalStorage)
 addTaskButton.addEventListener('click' , addtask)
-
-
 
 
 
