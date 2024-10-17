@@ -181,8 +181,9 @@ img{
     cursor: pointer;
 }
 .check-box{
-    width: 20px;
-    height: 20px;
+    width: 19px;
+    height: 19px;
+    border: 1px solid var(--dark-blue);
     background-color: var(--grey-color);
     border-radius: 50%;
     -webkit-border-radius: 50%;
@@ -193,11 +194,11 @@ img{
 }
 .checkedSymbol{
     display: none;
-    width: 20px;
-    height: 20px;
+    width: 19px;
+    height: 19px;
     background-color: var(--dark-blue);
     position: absolute;
-    top: 45%;
+    top: 46%;
     left: 50%;
     border-radius: 50%;
     -webkit-border-radius: 50%;

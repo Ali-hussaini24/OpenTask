@@ -129,6 +129,7 @@ function TaskOperation (tasks) {
 
         let ellipsIcon = document.createElement('i')
         ellipsIcon.className = 'fa-solid fa-pen'
+        ellipsIcon.setAttribute('onclick' , `openModal(${index})`)
 
         let DeleteIcon = document.createElement('i')
         DeleteIcon.className = 'fa fa-trash'
@@ -170,8 +171,19 @@ function checkedTask(taskindex){
     TaskOperation(TaskArray)
 }
 
-function openMenuBox(taskId){
-
+async function openModal(taskindex){
+    let localvalue = JSON.parse(localStorage.getItem('Tods'));
+    TaskArray = localvalue;
+    TaskArray.forEach((item , index) => {
+        if (index === taskindex) {
+            let newTask = prompt('Enter new Task:');
+            if (newTask) {
+                item.Task = newTask;
+            }
+        }
+    })
+    setLocalStorage(TaskArray);
+    TaskOperation(TaskArray);
 }
 
 // local storage operation
